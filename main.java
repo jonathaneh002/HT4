@@ -8,8 +8,11 @@ import javax.swing.JFileChooser;
 
 public class main {
 	private static JFileChooser file = new JFileChooser();
+	private static calculadora Cont = new ProtCalculadora();
 	private static File arch;
 	private static String ruta = null;
+	private static String posfix;
+	private static String res = " ";
 
 	public static void main(String[] args) throws IOException {
 		Scanner leer = new Scanner(System.in);
@@ -23,12 +26,23 @@ public class main {
             arch = file.getSelectedFile();
             ruta = arch.getAbsolutePath();
             System.out.println("\nArchivo a utilizar: " + arch.getAbsolutePath());
+            try{
+                FileReader read = new FileReader(ruta);
+                BufferedReader read1 = new BufferedReader(read);
+                String data = read1.readLine();
+                Change cambio = new Change();
+                posfix = cambio.infixToPostfix(data);
+                System.out.println("Expresion convertida a infix: " + posfix);
+            }
+            catch(ArithmeticException | IOException | NumberFormatException e){
+            System.out.println(e.toString());
+            }
         }
         FileReader read = new FileReader(ruta);
         BufferedReader read1 = new BufferedReader(read);
         String data = read1.readLine();
         Change cambio = new Change();
-        String posfix = cambio.infixToPostfix(data);
+        posfix = Change.infixToPostfix(data);
           
             
             String opcion = "";
@@ -43,19 +57,14 @@ public class main {
             	switch(opcion)
                 {
 	            	case "1":
-	            	{
-	            		Stack<String> stackArraylist = sFactory.getStack("AL");
-	            		stackArraylist.push("holaa Arraylist");
-	            		System.out.println(stackArraylist.pop());
+	            		res = Cont.decode(posfix, "AL");
+	            		System.out.println(res);
 	            		break;
-	            	}
+	            	
 	            	case "2":
-	            	{
-	            		Stack<String> stackVector = sFactory.getStack("V");
-	            		stackVector.push("holaa vector");
-	            		System.out.println(stackVector.pop());
+	            		res = Cont.decode(posfix, "V");
+	            		System.out.println(res);
 	            		break;
-	            	}
 	            	case "3":
 	            	{
 	            		String opL = "";
@@ -68,15 +77,13 @@ public class main {
 	            			opL= leer.next();
 	            			if(opL.equals("1"))
 	            			{
-	            				Stack<String> stackSimpleE = sFactory.getStack("L");
-	            				stackSimpleE.push("holaa Lista simple");
-	    	            		System.out.println(stackSimpleE.pop());
+	            				res = Cont.decode(posfix, "L");
+	            				System.out.println(res);
 	            			}
 	            			else if(opL.equals("2"))
 	            			{
-	            				Stack<String> stackDobleE = sFactory.getStack("D");
-	            				stackDobleE.push("holaa Lista doble");
-	    	            		System.out.println(stackDobleE.pop());
+	            				res = Cont.decode(posfix, "D");
+	            				System.out.println(res);
 	            			}
 	            			else if(opL.equals("3"))
 	            			{
@@ -100,6 +107,7 @@ public class main {
 	            		break;
 	            	}
                 }
+            	
             }
 	}
 }
