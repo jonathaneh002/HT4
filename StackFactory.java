@@ -8,9 +8,9 @@ class StackFactory<E> {
 	else if(entry.equals("V"))
       return new StackVector<E>(); //regresa Vector
 	else if(entry.equals("L"))
-		return new StackList<E>();
+		return new StackList<E>(); //regresa lista simple
 	else if(entry.equals("D"))
-		return new StackDoubleLinkedList<E>();
+		return new StackDoubleLinkedList<E>(); //regresa lista doble
 	else
 		return new StackVector<E>();
    }
