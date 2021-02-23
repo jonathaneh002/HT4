@@ -1,4 +1,8 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
@@ -8,8 +12,9 @@ public class main {
 	private static File arch;
 	private static String ruta = null;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner leer = new Scanner(System.in);
+		StackFactory<String> sFactory = new StackFactory<String>();
 		
 		
 		System.out.println("Bienvenido, primero debe de seleccionar el archivo a calcular");
@@ -19,6 +24,13 @@ public class main {
             arch = file.getSelectedFile();
             ruta = arch.getAbsolutePath();
             System.out.println("\nArchivo a utilizar: " + arch.getAbsolutePath());
+        }
+        FileReader read = new FileReader(ruta);
+        BufferedReader read1 = new BufferedReader(read);
+        String data = read1.readLine();
+        Change cambio = new Change();
+        String posfix = cambio.infixToPostfix(data);
+          
             
             String opcion = "";
             while(!opcion.equals("4"))
@@ -33,12 +45,16 @@ public class main {
                 {
 	            	case "1":
 	            	{
-	            		
+	            		Stack<String> stackArraylist = sFactory.getStack("AL");
+	            		stackArraylist.push("holaa Arraylist");
+	            		System.out.println(stackArraylist.pop());
 	            		break;
 	            	}
 	            	case "2":
 	            	{
-	            		
+	            		Stack<String> stackVector = sFactory.getStack("V");
+	            		stackVector.push("holaa vector");
+	            		System.out.println(stackVector.pop());
 	            		break;
 	            	}
 	            	case "3":
@@ -49,13 +65,18 @@ public class main {
 	            			System.out.println("Seleccione\n"
 	            					+ "1. Lista simplemente encadenada\n"
 	            					+ "2. Lista doblemente encadenada");
+	            			opL= leer.next();
 	            			if(opL.equals("1"))
 	            			{
-	            				System.out.println("1");
+	            				Stack<String> stackSimpleE = sFactory.getStack("L");
+	            				stackSimpleE.push("holaa Lista simple");
+	    	            		System.out.println(stackSimpleE.pop());
 	            			}
 	            			else if(opL.equals("2"))
 	            			{
-	            				System.out.println("2");
+	            				Stack<String> stackDobleE = sFactory.getStack("D");
+	            				stackDobleE.push("holaa Lista doble");
+	    	            		System.out.println(stackDobleE.pop());
 	            			}
 	            			else
 	            			{
@@ -76,7 +97,6 @@ public class main {
 	            	}
                 }
             }
-        }
-
 	}
 }
+
