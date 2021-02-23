@@ -4,7 +4,9 @@ import java.util.Stack;
 
 /**
  *
- * @author Jonat
+ * @author Jonathan Espinoza 20022
+ * @author Juan Andres Galicia 20298
+ * @version 23-2-2021
  */
 public class Change {
         public static int Prec(char ch) 
@@ -26,6 +28,11 @@ public class Change {
     } 
        
     // Covierte de infix a postfix
+        /**
+         * 
+         * @param exp
+         * @return
+         */
     public static String infixToPostfix(String exp) 
     { 
         String result = new String(""); 

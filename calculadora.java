@@ -1,8 +1,9 @@
 
 /**
  *
- * @author Jonathan Espinoza
- * @version 4-2-2021
+* @author Jonathan Espinoza 20022
+ * @author Juan Andres Galicia 20298
+ * @version 23-2-2021
  */
 public interface calculadora
 {

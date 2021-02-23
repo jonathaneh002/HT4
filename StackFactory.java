@@ -1,6 +1,19 @@
+/**
+ * 
+ * @author Jonathan Espinoza 20022
+ * @author Juan Andres Galicia 20298
+ * @version 23-2-2021
+ *
+ * @param <E>
+ */
 class StackFactory<E> {
 //selecciona la implementacion a utilizar para un stack
 //se utiliza el patron Factory
+	/**
+	 * 
+	 * @param entry
+	 * @return
+	 */
    public Stack<E> getStack(String entry) {
     // seleccion de la implementacion a utilizar:
 	if (entry.equals("AL"))

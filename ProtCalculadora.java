@@ -10,10 +10,30 @@ import java.io.IOException;
 
 /**
  *
- * @author Jonathan Espinoza
- * @version 4-2-2021
+* @author Jonathan Espinoza 20022
+ * @author Juan Andres Galicia 20298
+ * @version 23-2-2021
  */
 public class ProtCalculadora implements calculadora {
+	
+	private static ProtCalculadora calcu;
+	/**
+	 * 
+	 */
+    private ProtCalculadora()
+    {
+
+    }
+
+    public static ProtCalculadora getProtCalculadora()
+    {
+        if(calcu == null)
+        {
+            calcu = new ProtCalculadora();
+        }
+        return calcu;
+    }
+    
     int resultado;
     /**
      * 
@@ -75,7 +95,7 @@ public class ProtCalculadora implements calculadora {
     }
     /**
      * 
-     * @param a
+     * @param a, e
      * @return 
      */
     @Override

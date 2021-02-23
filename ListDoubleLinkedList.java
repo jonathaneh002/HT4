@@ -1,9 +1,19 @@
+/**
+ * 
+ * @author Jonathan Espinoza 20022
+ * @author Juan Andres Galicia 20298
+ * @version 23-2-2021
+ *
+ * @param <E>
+ */
 public class ListDoubleLinkedList<E> extends List<E> {
 
 	private NodeDouble<E> _start;
 	private NodeDouble<E> _end;
 	private int size;
-	
+	/**
+	 * 
+	 */
 	public ListDoubleLinkedList() {
 		_start = null;
 		_end = null;
@@ -11,6 +21,9 @@ public class ListDoubleLinkedList<E> extends List<E> {
 	}
 	
 	@Override
+	/**
+	 * 
+	 */
 	public boolean insert(E element) {
 		NodeDouble<E> newNode = new NodeDouble<E>(element);
 		
@@ -29,18 +42,27 @@ public class ListDoubleLinkedList<E> extends List<E> {
 	}
 
 	@Override
+	/**
+	 * 
+	 */
 	public boolean insertAt(E element, int index) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
+	/**
+	 * 
+	 */
 	public boolean insertAtStart(E element) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
+	/**
+	 * 
+	 */
 	public boolean insertAtEnd(E element) {
 		return this.insert(element);
 	}
@@ -52,6 +74,9 @@ public class ListDoubleLinkedList<E> extends List<E> {
 	}
 
 	@Override
+	/**
+	 * 
+	 */
 	public E removeAtStart() {
 		if (isEmpty()) {
 			return null;

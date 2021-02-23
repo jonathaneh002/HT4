@@ -5,15 +5,26 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
-
+/**
+ * 
+ * @author Jonathan Espinoza 20022
+ * @author Juan Andres Galicia 20298
+ * @version 23-2-2021
+ *
+ */
 public class main {
 	private static JFileChooser file = new JFileChooser();
-	private static calculadora Cont = new ProtCalculadora();
+	private static calculadora Cont = ProtCalculadora.getProtCalculadora();
 	private static File arch;
 	private static String ruta = null;
 	private static String posfix;
 	private static String res = " ";
 
+	/**
+	 * 
+	 * @param args
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws IOException {
 		Scanner leer = new Scanner(System.in);
 		StackFactory<String> sFactory = new StackFactory<String>();
