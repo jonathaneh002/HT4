@@ -46,7 +46,7 @@ public class Change {
             { 
                 while (!chars.isEmpty() &&  
                         chars.peek() != '(') 
-                    result += chars.pop(); 
+                    result += chars.pop() + " "; 
                   
                     chars.pop(); 
             } 
