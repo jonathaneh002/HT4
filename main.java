@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -60,11 +59,12 @@ public class main {
 	            	case "3":
 	            	{
 	            		String opL = "";
-	            		while(!opL.equals("1") || !opL.equals("2"))
+	            		while(!opL.equals("3"))
 	            		{
 	            			System.out.println("Seleccione\n"
 	            					+ "1. Lista simplemente encadenada\n"
-	            					+ "2. Lista doblemente encadenada");
+	            					+ "2. Lista doblemente encadenada\n"
+	            					+ "3. Regresar");
 	            			opL= leer.next();
 	            			if(opL.equals("1"))
 	            			{
@@ -77,6 +77,10 @@ public class main {
 	            				Stack<String> stackDobleE = sFactory.getStack("D");
 	            				stackDobleE.push("holaa Lista doble");
 	    	            		System.out.println(stackDobleE.pop());
+	            			}
+	            			else if(opL.equals("3"))
+	            			{
+	            				System.out.println("Regresando...\n\n");
 	            			}
 	            			else
 	            			{
@@ -99,4 +103,3 @@ public class main {
             }
 	}
 }
-
