@@ -1,7 +1,11 @@
 import java.util.Stack;
 
+/**
+ *
+ * @author Jonat
+ */
 public class Change {
-public static int Prec(char ch) 
+        public static int Prec(char ch) 
     { 
         switch (ch) 
         { 
@@ -31,7 +35,7 @@ public static int Prec(char ch)
               
             // Si es un operando, agregarlo al resultado
             if (Character.isLetterOrDigit(c)) 
-                result += c; 
+                result += (c + " "); 
                
             // Si en un parentesis, agregarlo al stack
             else if (c == '(') 
@@ -51,7 +55,7 @@ public static int Prec(char ch)
                 while (!chars.isEmpty() && Prec(c)  
                          <= Prec(chars.peek())){ 
                     
-                    result += chars.pop(); 
+                    result += (chars.pop() + " "); 
              } 
                 chars.push(c); 
             } 
@@ -61,8 +65,9 @@ public static int Prec(char ch)
         while (!chars.isEmpty()){ 
             if(chars.peek() == '(') 
                 return "Expresion invalida"; 
-            result += chars.pop(); 
+            result += chars.pop() + " "; 
          } 
         return result; 
     } 
+    
 }
